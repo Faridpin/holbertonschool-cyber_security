@@ -1,2 +1,2 @@
 #!/bin/bash
-< /dev/urandom | head -c 256
+< /dev/urandom tr -dc 'A-Za-z0-9!@#$%^&*()-_=+' | head -c 16
