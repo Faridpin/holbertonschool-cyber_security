@@ -1,2 +1,2 @@
 #!/bin/bash
-sha256sum -c test_file
+echo "$2  $1" | sha256sum -c - > /dev/null && echo "$1: OK" || echo "$1: FAILED"
