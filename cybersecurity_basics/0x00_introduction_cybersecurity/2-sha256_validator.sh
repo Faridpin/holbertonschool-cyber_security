@@ -1,3 +1,2 @@
 #!/bin/bash
-read filename
-sha256sum $filename
+sha256sum test_file
