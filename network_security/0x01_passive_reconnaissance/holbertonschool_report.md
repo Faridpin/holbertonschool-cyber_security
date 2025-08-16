@@ -1,22 +1,25 @@
-	1. IP Addresses / Ranges
-Found `35.226.21.195` responding for `www.holbertonschool.com`.
-Likely hosted on Google Cloud (based on IP lookup).
-Could be part of a larger /24 block (`35.226.21.0/24`).
-	2. Subdomains
-| Subdomain                | IP Address     | Notes                                    |
-|--------------------------|----------------|------------------------------------------|
-| www.holbertonschool.com  | 35.226.21.195  | Main site, Google Cloud infra.           |
-| (other subdomains TBD)   | ?              | Not much exposed in public scans.        |
-
-	3. Technologies
-Web stack appears to be behind a load balancer (Google infra).
-SSL/TLS cert issued by Gandi (common for holbertonschool.com).
-From headers and meta: nginx + modern TLS.
-Site code hints at JavaScript frameworks (React, Node.js backend).
-Curriculum materials mention TensorFlow, MongoDB, Redis, etc., but not confirmed on infra.
-
-	4. Observations
-Domain seems to rely on Google Cloud hosting.
-No obvious extra subdomains exposed in the scan.
-Shodan banners mostly show standard HTTPS services, nothing exotic.
-Nothing high-risk popped up, looks like everything is behind cloud-managed services.
+    Reconnaissance Report -  holbertonschool.com
+    1. Introduction
+        Passive reconnaissance was performed on `holbertonschool.com` using Shodan to:
+            - Identify IP addresses
+            - List technologies and frameworks
+    2. IP Addresses
+        - 52.47.143.83
+        - 35.180.27.154
+        - 99.83.190.102
+        - 75.2.70.75
+    3. Subdomains
+        - blog.holbertonschool.com
+        - lvl2-discourse-staging.holbertonschool.com
+        - staging-apply-forum.holbertonschool.com
+        - v1.holbertonschool.com
+        - v2.holbertonschool.com
+        - yriry2.holbertonschool.com
+    4. Technologies
+        - Web Servers: Apache/Nginx
+        - CMS/Forums: WordPress/Discourse
+        - HTTPS enabled
+        - JS frameworks: React/Vue (possible)
+    5. Summary
+        The domain uses standard web technologies across multiple subdomains and IPs. 
+        This info can support further monitoring or security assessments.
