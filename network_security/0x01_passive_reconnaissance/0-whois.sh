@@ -1,12 +1,2 @@
 #!/bin/bash
-domain=$1
-outfile="${domain}.csv"
-
-whois "$domain" | awk '
-/Registrant|Admin|Tech/ {
-    # Remove leading spaces
-    sub(/^[ \t]+/, "", $0)
-    # Replace first colon with comma
-    sub(":[ ]*", ",")
-    print
-}' > "$outfile"
+whois "$1" | awk '/Registrant|Admin|Tech/ { sub(/^[ \t]+/, ""); sub(":[ ]*", ","); print }' > "$1.csv"
