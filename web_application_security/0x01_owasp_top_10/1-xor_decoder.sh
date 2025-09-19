@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -c "import sys,base64;print(''.join(chr(b^0x40) for b in base64.b64decode(sys.argv[1][5:] if sys.argv[1].lower().startswith('{xor}') else sys.argv[1])))" "{xor}KzosKw=="
+python3 -c "from base64 import b64decode; print(bytes(byte ^ 0x5f for byte in b64decode('$1'.replace('{xor}', ''))).decode('utf-8'))"
