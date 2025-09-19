@@ -1,5 +1,4 @@
 #!/bin/bash
-printf '%b' "$(echo -n "${1#\{xor\}}" \
-    | base64 -d \
-    | xxd -p -c1 \
-    | awk '{printf "\\x%02x", strtonum("0x"$1) ^ 0x5F}')"
+key=0x5F
+echo -n "${1#\{xor\}}" | base64 -d | od -An -tx1 | tr -d ' \n' | \
+awk -v k=$key '{for(i=1;i<=length($0);i+=2){printf "%c", ("0x" substr($0,i,2)) ^ k}}'
