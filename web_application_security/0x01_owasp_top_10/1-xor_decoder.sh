@@ -1,4 +1,2 @@
 #!/bin/bash
-key=0x5F
-echo -n "${1#\{xor\}}" | base64 -d | od -An -tx1 | tr -d ' \n' | \
-awk -v k=$key '{for(i=1;i<=length($0);i+=2){printf "%c", ("0x" substr($0,i,2)) ^ k}}'
+python3 -c "import sys,base64;print(''.join(chr(b^0x40) for b in base64.b64decode(sys.argv[1][5:] if sys.argv[1].lower().startswith('{xor}') else sys.argv[1])))" "{xor}KzosKw=="
